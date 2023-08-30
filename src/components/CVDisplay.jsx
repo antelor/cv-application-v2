@@ -14,7 +14,7 @@ function CVDisplay({ info }) {
         </div>
 
         <div>
-            {info.summary}
+            {info.generalInfo.summary}
         </div>
 
         <div>
