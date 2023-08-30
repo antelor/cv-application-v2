@@ -6,7 +6,7 @@ function CVForm({info, setInfo, menuIndex}) {
 
 
     return(
-        <div className='Form'>
+        <section className='Form'>
             {(menuIndex == 0) && 
             <>
             <GeneralInfoForm info={info} setInfo={setInfo}/>
@@ -17,7 +17,7 @@ function CVForm({info, setInfo, menuIndex}) {
             <>
             <ExperienceForm info={info} setInfo={setInfo}/>
             </>} 
-        </div>)
+        </section>)
     
 }
 
@@ -120,6 +120,79 @@ function SkillsForm({info, setInfo}) {
 }
 
 function ExperienceForm({info, setInfo}){
+
+    const [position, setPosition] = useState('');
+    const [location, setLocation] = useState('');
+    const [desc, setDesc] = useState('');
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+
+    function changePosition(e){
+        setPosition(e.target.value)
+    }
+
+    function changeLocation(e){
+        setLocation(e.target.value)
+    }
+
+    function changeDesc(e){
+        setDesc(e.target.value)
+    }
+
+    function changeStartDate(e){
+        setStartDate(e.target.value)
+    }
+
+    function changeEndDate(e){
+        setEndDate(e.target.value)
+    }
+
+    function addJob(){
+        let newInfo = {...info}
+        newInfo.experience.push({position: position, location: location, desc: desc, startDate: startDate, endDate: endDate})
+        setInfo(newInfo)
+        resetPositionInput()
+    }
+
+    function resetPositionInput(){
+        setPosition('')
+        setLocation('')
+        setDesc('')
+        setStartDate('')
+        setEndDate('')
+    }
+
+    function deleteJob(index){
+        let newInfo = {...info};
+        newInfo.experience = newInfo.experience.filter((job, jobIndex) => jobIndex !== index)
+        setInfo(newInfo)
+    }
+
+    return(
+        <>
+        {info.experience.map((job, index) =>{
+            return(
+                <div key={index}>
+                    <p>{job.position}</p>
+                    <p>{job.location}</p>
+                    <p>{job.desc}</p>
+                    <span>{job.startDate}</span>
+                    <span>{job.endDate}</span>
+                    <button onClick={() => deleteJob(index)}>Delete</button>
+                </div>
+            )
+        })}
+        <div>
+            <input onChange={(e) => changePosition(e)}></input>
+            <input onChange={(e) => changeLocation(e)}></input>
+            <input onChange={(e) => changeDesc(e)}></input>
+            <input onChange={(e) => changeStartDate(e)}></input>
+            <input onChange={(e) => changeEndDate(e)}></input>
+            <button onClick={addJob}>Add</button>
+        </div>
+        
+        </>
+    )
 
 }
 

@@ -2,7 +2,7 @@
 function CVDisplay({ info }) {
 
   return (
-    <div className="Display">
+    <section className="Display">
         <div>
             <h1>
                 {info.generalInfo.fullName}
@@ -23,7 +23,12 @@ function CVDisplay({ info }) {
             })}
         </div>
 
-    </div>
+        <div>
+            {info.experience.map((job, index)=>{
+                return <div key={index}>{job.position}, {job.location} {job.desc} {job.startDate} {job.endDate} </div>
+            } )}
+        </div>
+    </section>
   )
 }
 

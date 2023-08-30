@@ -1,8 +1,21 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  height: 100vh;
+}
+
+.App {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+body{
+  height: 100%;
+}
+
+section{
+  border: 1px solid red;
 }
 
 .logo {

@@ -4,6 +4,7 @@ import CVForm from './CVForm.jsx'
 import CVDisplay from './CVDisplay'
 import Menu from './Menu'
 
+
 let placeholderInfo = {
   generalInfo:{
     fullName: 'Jhon Bhon Jhovi',
@@ -19,6 +20,12 @@ let placeholderInfo = {
     {title:'Dev Tools', desc:'Con Javascript me hice la casa'},
     {title:'Idiomas', desc:'Con Javascript me hice la casa'},
     {title:'Otros', desc:'Con Javascript me hice la casa'},
+  ],
+  experience:[
+    {position:"relative", location:"Madrid", desc:"Lorem Ipsum", startDate:"9/12/18", endDate:"9/12/18"},
+    {position:"relative", location:"Madrid", desc:"Lorem Ipsum", startDate:"9/12/18", endDate:"9/12/18"},
+    {position:"relative", location:"Madrid", desc:"Lorem Ipsum", startDate:"9/12/18", endDate:"9/12/18"},
+    {position:"relative", location:"Madrid", desc:"Lorem Ipsum", startDate:"9/12/18", endDate:"9/12/18"}
   ]
 }
 
@@ -28,11 +35,11 @@ function App() {
   const [info, setInfo] = useState(placeholderInfo);
 
   return (
-    <>
+    <div className='App'>
       <Menu menuIndex={menuIndex} setMenuIndex={setMenuIndex}/>
       <CVForm info={info} setInfo={setInfo} menuIndex={menuIndex}/>
       <CVDisplay info={info}/>
-    </>
+    </div>
   )
 }
 
