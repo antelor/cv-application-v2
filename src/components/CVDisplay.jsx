@@ -2,7 +2,7 @@
 function CVDisplay({ info }) {
 
   return (
-    <div>
+    <div className="Display">
         <div>
             <h1>
                 {info.generalInfo.fullName}

@@ -5,22 +5,19 @@ import {useState} from 'react';
 function CVForm({info, setInfo, menuIndex}) {
 
 
-    if (menuIndex == 0) {
-        return (
+    return(
+        <div className='Form'>
+            {(menuIndex == 0) && 
             <>
-                <GeneralInfoForm info={info} setInfo={setInfo}/>
-                <SkillsForm info={info} setInfo={setInfo}/>
-            </>
-        )
-    }
-
-    if (menuIndex == 1) {
-        return (
+            <GeneralInfoForm info={info} setInfo={setInfo}/>
+            <SkillsForm info={info} setInfo={setInfo}/>
+            </>}
+            
+            {(menuIndex == 1) &&
             <>
-                <ExperienceForm info={info} setInfo={setInfo}/>
-            </>
-        )
-    }
+            <ExperienceForm info={info} setInfo={setInfo}/>
+            </>} 
+        </div>)
     
 }
 
@@ -66,12 +63,12 @@ function GeneralInfoForm({info, setInfo}) {
 
     return (
         <div>
-            <input onChange={(e) => {handleNameChange(e)}} placeholder="FirstName LastName"></input>
-            <input onChange={(e) => {handleWebsiteChange(e)}} placeholder="website.com"></input>
-            <input onChange={(e) => {handleLocationChange(e)}} placeholder="Country, State, City"></input>
-            <input onChange={(e) => {handleEmailChange(e)}} placeholder="example@example.com"></input>
-            <input onChange={(e) => {handlePhoneChange(e)}} placeholder="+11 111 111111"></input>
-            <textarea onChange={(e) => {handleSummaryChange(e)}} placeholder="Tell something about you"></textarea>
+            <input onChange={(e) => {handleNameChange(e)}} placeholder="FirstName LastName" value={info.generalInfo.fullName}></input>
+            <input onChange={(e) => {handleWebsiteChange(e)}} placeholder="website.com" value={info.generalInfo.website}></input>
+            <input onChange={(e) => {handleLocationChange(e)}} placeholder="Country, State, City" value={info.generalInfo.location}></input>
+            <input onChange={(e) => {handleEmailChange(e)}} placeholder="example@example.com" value={info.generalInfo.email}></input>
+            <input onChange={(e) => {handlePhoneChange(e)}} placeholder="+11 111 111111" value={info.generalInfo.phone}></input>
+            <textarea onChange={(e) => {handleSummaryChange(e)}} placeholder="Tell something about you" value={info.generalInfo.summary}></textarea>
         </div>
     )
 }
@@ -123,7 +120,7 @@ function SkillsForm({info, setInfo}) {
 }
 
 function ExperienceForm({info, setInfo}){
-    
+
 }
 
 export default CVForm
