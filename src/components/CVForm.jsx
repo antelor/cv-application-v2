@@ -92,6 +92,10 @@ function SkillsForm({info, setInfo}) {
 
     function addSkill() {
         let newInfo = {...info};
+        if(skillTitle=='' || skillDesc==''){
+            alert("Please fill in all fields");
+            return;
+        }
         newInfo.skills.push({title: skillTitle, desc: skillDesc});
         setInfo(newInfo);
         setSkillTitle('');
@@ -154,6 +158,10 @@ function ExperienceForm({info, setInfo}){
 
     function addJob(){
         let newInfo = {...info}
+        if(position=='' || location=='' || desc=='' || startDate=='' || endDate==''){
+            alert("Please fill in all fields");
+            return;
+        }
         newInfo.experience.push({position: position, location: location, desc: desc, startDate: startDate, endDate: endDate})
         setInfo(newInfo)
         resetPositionInput()
@@ -236,6 +244,10 @@ function EducationForm({info, setInfo}){
 
     function addEd(){
         let newInfo = {...info}
+        if(school=='' || location=='' || degree=='' || desc=='' || startDate=='' || endDate==''){
+            alert("Please fill in all fields");
+            return;
+        }
         newInfo.education.push({school: school, location: location, degree: degree, desc: desc, startDate: startDate, endDate: endDate})
         setInfo(newInfo)
         resetEdInput()
