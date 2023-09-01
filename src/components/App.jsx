@@ -8,9 +8,14 @@ import { jsPDF } from "jspdf";
 
 const generatePDF = () => {
     const report = new jsPDF('p', 'pt', 'a4');
-    report.html(document.querySelector('.Display')).then(() => {
-    report.save('report.pdf');
-  });
+    report.html(document.querySelector('.Display'), {
+      html2canvas: {
+          scale: 0.7496,
+      },
+      callback: function (doc) {
+          window.open(doc.output('bloburl'));
+      }
+  })
 };
 
 

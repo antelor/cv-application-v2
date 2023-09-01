@@ -5,8 +5,7 @@ function CVDisplay({ info }) {
 
   return (
     <>
-    <button></button>
-    <section className="Display">
+    <div className="Display">
         <div>
             <h1>
                 {info.generalInfo.fullName}
@@ -38,7 +37,7 @@ function CVDisplay({ info }) {
                 return <div key={index}>{ed.school}, {ed.degree} {ed.location} {ed.desc} {ed.startDate} {ed.endDate} </div>
             } )}
         </div>
-    </section>
+    </div>
     </>
   )
 }
