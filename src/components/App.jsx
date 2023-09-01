@@ -1,8 +1,17 @@
 import { useState } from 'react'
-import '../styles/App.css'
+import '../styles/App.scss'
 import CVForm from './CVForm.jsx'
 import CVDisplay from './CVDisplay'
 import Menu from './Menu'
+import { jsPDF } from "jspdf";
+
+
+const generatePDF = () => {
+    const report = new jsPDF('p', 'pt', 'a4');
+    report.html(document.querySelector('.Display')).then(() => {
+    report.save('report.pdf');
+  });
+};
 
 
 let placeholderInfo = {
@@ -33,9 +42,6 @@ let placeholderInfo = {
   ]
 }
 
-    //
-
-
 
 function App() {
   const [menuIndex, setMenuIndex] = useState(0);
@@ -46,6 +52,8 @@ function App() {
       <Menu menuIndex={menuIndex} setMenuIndex={setMenuIndex}/>
       <CVForm info={info} setInfo={setInfo} menuIndex={menuIndex}/>
       <CVDisplay info={info}/>
+
+      <button onClick={generatePDF}>a</button>
     </div>
   )
 }

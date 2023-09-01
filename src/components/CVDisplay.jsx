@@ -1,7 +1,11 @@
 /* eslint-disable react/prop-types */
+import '../styles/CVDisplay.scss'
+
 function CVDisplay({ info }) {
 
   return (
+    <>
+    <button></button>
     <section className="Display">
         <div>
             <h1>
@@ -35,6 +39,7 @@ function CVDisplay({ info }) {
             } )}
         </div>
     </section>
+    </>
   )
 }
 

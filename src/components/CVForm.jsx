@@ -115,7 +115,7 @@ function SkillsForm({info, setInfo}) {
                     </div>
                 )})}
                 <div>
-                    <input placeholder="Title" onChange={(e) => updateTitleValue(e)} value={skillTitle}></input>
+                    <input placeholder="Skill Title" onChange={(e) => updateTitleValue(e)} value={skillTitle}></input>
                     <textarea placeholder="Description" onChange={(e) => updateDescValue(e)} value={skillDesc}></textarea>
                     <button onClick={addSkill}>Add</button>
                 </div>
