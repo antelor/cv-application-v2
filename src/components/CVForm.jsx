@@ -17,6 +17,11 @@ function CVForm({info, setInfo, menuIndex}) {
             <>
             <ExperienceForm info={info} setInfo={setInfo}/>
             </>} 
+
+            {(menuIndex == 2) &&
+            <>
+            <EducationForm info={info} setInfo={setInfo}/>
+            </>} 
         </section>)
     
 }
@@ -183,11 +188,11 @@ function ExperienceForm({info, setInfo}){
             )
         })}
         <div>
-            <input onChange={(e) => changePosition(e)}></input>
-            <input onChange={(e) => changeLocation(e)}></input>
-            <input onChange={(e) => changeDesc(e)}></input>
-            <input onChange={(e) => changeStartDate(e)}></input>
-            <input onChange={(e) => changeEndDate(e)}></input>
+            <input placeholder='Position' onChange={(e) => changePosition(e)}></input>
+            <input placeholder='Location' onChange={(e) => changeLocation(e)}></input>
+            <input placeholder='Description' onChange={(e) => changeDesc(e)}></input>
+            <input placeholder='Start Date' onChange={(e) => changeStartDate(e)}></input>
+            <input placeholder='End Date' onChange={(e) => changeEndDate(e)}></input>
             <button onClick={addJob}>Add</button>
         </div>
         
@@ -195,5 +200,91 @@ function ExperienceForm({info, setInfo}){
     )
 
 }
+
+function EducationForm({info, setInfo}){
+
+    const [school, setSchool] = useState('');
+    const [location, setLocation] = useState('');
+    const [degree, setDegree] = useState('');
+    const [desc, setDesc] = useState('');
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+
+    function changeSchool(e){
+        setSchool(e.target.value)
+    }
+
+    function changeLocation(e){
+        setLocation(e.target.value)
+    }
+
+    function changeDegree(e){
+        setDegree(e.target.value)
+    }
+
+    function changeDesc(e){
+        setDesc(e.target.value)
+    }
+
+    function changeStartDate(e){
+        setStartDate(e.target.value)
+    }
+
+    function changeEndDate(e){
+        setEndDate(e.target.value)
+    }
+
+    function addEd(){
+        let newInfo = {...info}
+        newInfo.education.push({school: school, location: location, degree: degree, desc: desc, startDate: startDate, endDate: endDate})
+        setInfo(newInfo)
+        resetEdInput()
+    }
+
+    function resetEdInput(){
+        setSchool('')
+        setLocation('')
+        setDegree('')
+        setDesc('')
+        setStartDate('')
+        setEndDate('')
+    }
+
+    function deleteEd(index){
+        let newInfo = {...info};
+        newInfo.education = newInfo.education.filter((ed, edIndex) => edIndex !== index)
+        setInfo(newInfo)
+    }
+
+    return(
+        <>
+        {info.education.map((ed, index) =>{
+            return(
+                <div key={index}>
+                    <p>{ed.school}</p>
+                    <p>{ed.location}</p>
+                    <p>{ed.degree}</p>
+                    <p>{ed.desc}</p>
+                    <span>{ed.startDate}</span>
+                    <span>{ed.endDate}</span>
+                    <button onClick={() => deleteEd(index)}>Delete</button>
+                </div>
+            )
+        })}
+        <div>
+            <input placeholder='School' onChange={(e) => changeSchool(e)}></input>
+            <input placeholder='Location' onChange={(e) => changeLocation(e)}></input>
+            <input placeholder='Degree' onChange={(e) => changeDegree(e)}></input>
+            <input placeholder='Description' onChange={(e) => changeDesc(e)}></input>
+            <input placeholder='Start Date' onChange={(e) => changeStartDate(e)}></input>
+            <input placeholder='End Date' onChange={(e) => changeEndDate(e)}></input>
+            <button onClick={addEd}>Add</button>
+        </div>
+        
+        </>
+    )
+
+}
+
 
 export default CVForm

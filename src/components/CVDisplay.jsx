@@ -28,6 +28,12 @@ function CVDisplay({ info }) {
                 return <div key={index}>{job.position}, {job.location} {job.desc} {job.startDate} {job.endDate} </div>
             } )}
         </div>
+
+        <div>
+            {info.education.map((ed, index)=>{
+                return <div key={index}>{ed.school}, {ed.degree} {ed.location} {ed.desc} {ed.startDate} {ed.endDate} </div>
+            } )}
+        </div>
     </section>
   )
 }

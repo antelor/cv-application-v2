@@ -7,12 +7,12 @@ import Menu from './Menu'
 
 let placeholderInfo = {
   generalInfo:{
-    fullName: 'Jhon Bhon Jhovi',
-    website: 'JohnBohvi.cohm',
-    location: 'Bohnshovi',
-    email: 'BonShonBhovi@Shomaihl.cohm',
+    fullName: 'Jon Bon Jovi',
+    website: 'JonBovi.com',
+    location: 'Bonshovi',
+    email: 'BonShonBovi@Shomail.com',
     phone: '234243243',
-    summary: 'Me llamo Joaquin Arruiz, tengo 23 años. Soy de Rosario, Santa Fe, Argentina. Actualmente estoy estudiando la carrera Ingenieria en Sistemas de Informacion en la Universidad Tecnologica Nacional (UTN). Mi objetivo a futuro es aprender tecnologias como React y NodeJS, a traves del curso The Odin Project que estoy realizando en este momento. Ademas estoy expandiendo mis conocimientos sobre bases de datos con SQL utilizando SQLite por mi cuenta. Me gustaria trabajar tanto de desarrollador front-end como de desarrollador fullstack.'
+    summary: 'Me llamo Jon Bon Jovi, tengo 23 años. Soy de Rosario, Santa Fe, Argentina. Actualmente estoy estudiando la carrera Ingenieria en Sistemas de Informacion en la Universidad Tecnologica Nacional (UTN). Mi objetivo a futuro es aprender tecnologias como React y NodeJS, a traves del curso The Odin Project que estoy realizando en este momento. Ademas estoy expandiendo mis conocimientos sobre bases de datos con SQL utilizando SQLite por mi cuenta. Me gustaria trabajar tanto de desarrollador front-end como de desarrollador fullstack.'
   },
   skills: [
     {title:'Lenguajes', desc:'Con Javascript me hice la casa'},
@@ -26,8 +26,15 @@ let placeholderInfo = {
     {position:"relative", location:"Madrid", desc:"Lorem Ipsum", startDate:"9/12/18", endDate:"9/12/18"},
     {position:"relative", location:"Madrid", desc:"Lorem Ipsum", startDate:"9/12/18", endDate:"9/12/18"},
     {position:"relative", location:"Madrid", desc:"Lorem Ipsum", startDate:"9/12/18", endDate:"9/12/18"}
+  ],
+  education:[
+    {school: 'school', location: 'location', degree: 'degree', desc: 'desc', startDate: 'startDate', endDate: 'endDate'},
+    {school: 'school', location: 'location', degree: 'degree', desc: 'desc', startDate: 'startDate', endDate: 'endDate'}
   ]
 }
+
+    //
+
 
 
 function App() {
