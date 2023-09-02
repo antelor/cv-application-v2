@@ -6,37 +6,85 @@ function CVDisplay({ info }) {
   return (
     <>
     <div className="Display">
-        <div>
-            <h1>
-                {info.generalInfo.fullName}
-            </h1>
-            {info.generalInfo.website}
-            {info.generalInfo.location}
-            {info.generalInfo.email}
-            {info.generalInfo.phone}
-        </div>
+        <div className='introduction container'>
+            <div className='personalInfo'>
+                <h1>
+                    {info.generalInfo.fullName}
+                </h1>
+                {info.generalInfo.website}
+                {info.generalInfo.location}
+                {info.generalInfo.email}
+                {info.generalInfo.phone}
+            </div>
+            <h2>Summary</h2>
+            <hr></hr>
 
-        <div>
-            {info.generalInfo.summary}
+            <div className='summary'>
+                {info.generalInfo.summary}
+            </div>
         </div>
-
-        <div>
-            {info.skills.map( (skill, index) => {
-                return <div key={index}>{skill.title}: {skill.desc}</div>
-            })}
+        
+        <div className='skills container'>
+            <h2>Skills</h2>
+            <hr></hr>
+            <ul className='skillList'>
+                {info.skills.map( (skill, index) => {
+                    return <li className="skillName" key={index}>
+                    <span className="titleText"> {skill.title}:</span> <span>{skill.desc}</span>  
+                    </li>
+                })}
+            </ul>
         </div>
-
-        <div>
-            {info.experience.map((job, index)=>{
-                return <div key={index}>{job.position}, {job.location} {job.desc} {job.startDate} {job.endDate} </div>
-            } )}
+        
+        <div className='experience container'>
+            <h2>Experience</h2>
+            <hr></hr>
+            <div className='jobList'>
+                {info.experience.map((job, index)=>{
+                    return <div key={index} className='jobContainer'>
+                            <div className='titleContainer'>
+                                <span>
+                                    <span className='titleText'>{job.position}, </span>
+                                    <span>{job.location}</span>
+                                </span>
+                                <span className='date'>
+                                    <span>{job.startDate}</span>
+                                    <span>-</span>
+                                    <span>{job.endDate}</span>
+                                </span>
+                            </div>
+                            <div>
+                                <div className='description'>  {job.desc} </div>
+                            </div> 
+                        </div>
+                } )}
+            </div>
         </div>
-
-        <div>
-            {info.education.map((ed, index)=>{
-                return <div key={index}>{ed.school}, {ed.degree} {ed.location} {ed.desc} {ed.startDate} {ed.endDate} </div>
-            } )}
-        </div>
+        
+        <div className='education container'>
+            <h2>Education</h2>
+            <hr></hr>
+            <div className='edList'>
+                {info.education.map((ed, index)=>{
+                    return <div key={index}>
+                            <div className='titleContainer'>
+                                <span>
+                                    <span>{ed.school}, {ed.degree}, </span>
+                                    <span>{ed.location}</span>
+                                </span>
+                                <span className='date'>
+                                    <span>{ed.startDate}</span>
+                                    <span>-</span>
+                                    <span>{ed.endDate}</span>
+                                </span>
+                            </div>
+                            <div>
+                                <div className='description'>  {ed.desc} </div>
+                            </div> 
+                        </div>
+                } )}
+            </div>
+        </div>   
     </div>
     </>
   )

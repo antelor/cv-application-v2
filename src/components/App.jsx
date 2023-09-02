@@ -8,6 +8,7 @@ import { jsPDF } from "jspdf";
 
 const generatePDF = () => {
     const report = new jsPDF('p', 'pt', 'a4');
+    report.setFont('Helvetica', 'normal');
     report.html(document.querySelector('.Display'), {
       html2canvas: {
           scale: 0.7496,
@@ -36,14 +37,14 @@ let placeholderInfo = {
     {title:'Otros', desc:'Con Javascript me hice la casa'},
   ],
   experience:[
-    {position:"relative", location:"Madrid", desc:"Lorem Ipsum", startDate:"9/12/18", endDate:"9/12/18"},
-    {position:"relative", location:"Madrid", desc:"Lorem Ipsum", startDate:"9/12/18", endDate:"9/12/18"},
-    {position:"relative", location:"Madrid", desc:"Lorem Ipsum", startDate:"9/12/18", endDate:"9/12/18"},
-    {position:"relative", location:"Madrid", desc:"Lorem Ipsum", startDate:"9/12/18", endDate:"9/12/18"}
+    {position:"Administrativo", location:"Madrid", desc:"Me desenvolvi en la funcion de lorem ipsum", startDate:"Apr 2000", endDate:"Mar 2000"},
+    {position:"relative", location:"Madrid", desc:"Lorem Ipsum", startDate:"Mon 2000", endDate:"Mon 2000"},
+    {position:"relative", location:"Madrid", desc:"Lorem Ipsum", startDate:"Mon 2000", endDate:"Mon 2000"},
+    {position:"relative", location:"Madrid", desc:"Lorem Ipsum", startDate:"Mon 2000", endDate:"Mon 2000"}
   ],
   education:[
-    {school: 'school', location: 'location', degree: 'degree', desc: 'desc', startDate: 'startDate', endDate: 'endDate'},
-    {school: 'school', location: 'location', degree: 'degree', desc: 'desc', startDate: 'startDate', endDate: 'endDate'}
+    {school: 'school', location: 'location', degree: 'degree', desc: 'desc', startDate: 'Mon 2000', endDate: 'Mon 2000'},
+    {school: 'school', location: 'location', degree: 'degree', desc: 'desc', startDate: 'Mon 2000', endDate: 'Mon 2000'}
   ]
 }
 
