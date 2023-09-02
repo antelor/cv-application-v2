@@ -22,29 +22,28 @@ const generatePDF = () => {
 
 let placeholderInfo = {
   generalInfo:{
-    fullName: 'Jon Bon Jovi',
-    website: 'JonBovi.com',
-    location: 'Bonshovi',
-    email: 'BonShonBovi@Shomail.com',
+    fullName: 'Lionel Andres Messi Cuccittini',
+    website: 'messi.com',
+    location: 'Miami, Florida, USA',
+    email: 'LionelMessi@goat.com',
     phone: '234243243',
-    summary: 'Me llamo Jon Bon Jovi, tengo 23 años. Soy de Rosario, Santa Fe, Argentina. Actualmente estoy estudiando la carrera Ingenieria en Sistemas de Informacion en la Universidad Tecnologica Nacional (UTN). Mi objetivo a futuro es aprender tecnologias como React y NodeJS, a traves del curso The Odin Project que estoy realizando en este momento. Ademas estoy expandiendo mis conocimientos sobre bases de datos con SQL utilizando SQLite por mi cuenta. Me gustaria trabajar tanto de desarrollador front-end como de desarrollador fullstack.'
+    summary: "I am Lionel Messi, a passionate Argentine professional footballer who has had the privilege of playing for remarkable teams. During my career, I spent over two decades at FC Barcelona, where I had the honor of contributing to the club's success and becoming its all-time top scorer. My journey in football also includes representing the Argentine national team, culminating in winning the Copa America in 2021. I have recently embarked on a new chapter in my career, joining Paris Saint-Germain (PSG) with immense gratitude for the opportunities that have come my way, and I am committed to continuing to give my best to the beautiful game."
   },
   skills: [
-    {title:'Lenguajes', desc:'Con Javascript me hice la casa'},
-    {title:'Database', desc:'Con Javascript me hice la casa'},
-    {title:'Dev Tools', desc:'Con Javascript me hice la casa'},
-    {title:'Idiomas', desc:'Con Javascript me hice la casa'},
-    {title:'Otros', desc:'Con Javascript me hice la casa'},
+    {title:'Dribbling', desc:'Exceptional close ball control and the ability to take on multiple defenders.'},
+    {title:'Finishing', desc:'Precise and prolific goal-scoring abilities, including accurate shooting and positioning.'},
+    {title:'Playmaking', desc:'Vision, passing accuracy, and creativity to create scoring opportunities for myself and teammates.'},
+    {title:'Acceleration', desc:'Explosive bursts of speed to beat defenders and create goal-scoring opportunities.'},
+    {title:'Tactical Intelligence', desc:'Deep understanding of the game, strategic positioning, and the ability to read and influence plays on the field.'},
   ],
   experience:[
-    {position:"Administrativo", location:"Madrid", desc:"Me desenvolvi en la funcion de lorem ipsum", startDate:"Apr 2000", endDate:"Mar 2000"},
-    {position:"relative", location:"Madrid", desc:"Lorem Ipsum", startDate:"Mon 2000", endDate:"Mon 2000"},
-    {position:"relative", location:"Madrid", desc:"Lorem Ipsum", startDate:"Mon 2000", endDate:"Mon 2000"},
-    {position:"relative", location:"Madrid", desc:"Lorem Ipsum", startDate:"Mon 2000", endDate:"Mon 2000"}
+    {position:"Attacking Midfielder", location:"FC Barcelona", desc:"I primarily played as a forward or attacking midfielder. I was the focal point of the team's attack, responsible for scoring goals, creating opportunities for teammates, and dictating the pace of the game. During my tenure, Barcelona enjoyed tremendous success, winning numerous titles, and I became the club's all-time top scorer.", startDate:"Oct 2004", endDate:"Aug 2021"},
+    {position:"Forward/Attacking Midfielder", location:"Paris Saint-Germain", desc:"I continue to play as a forward and attacking midfielder. My role remains centered around scoring goals, providing assists, and contributing to the team's overall attacking prowess. PSG represents a new challenge in my career, and I aim to bring my experience and skills to help the team achieve its goals.", startDate:"Aug 2021", endDate:"Mon 2000"},
+    {position:"Forward/Attacking Midfielder", location:"Inter Miami CF", desc:"I play as a forward and continue to be a key player in my team’s attack. My role is to score goals and create opportunities for my teammates to score.", startDate:"Jul 2023", endDate:"Present"},
   ],
   education:[
-    {school: 'school', location: 'location', degree: 'degree', desc: 'desc', startDate: 'Mon 2000', endDate: 'Mon 2000'},
-    {school: 'school', location: 'location', degree: 'degree', desc: 'desc', startDate: 'Mon 2000', endDate: 'Mon 2000'}
+    {school: 'Escuela Primaria N° 66 "Gral. Las Heras"', location: 'Rosario, Santa Fe, Argentina', degree: 'Primary', desc: 'I finished my basic studies as a kid', startDate: 'Mar 1995', endDate: 'Dic 2000'},
+    {school: 'Spain Secondary School', location: 'Barcelona, Spain', degree: 'Secondary', desc: "I finished my studies while I was playing for the Bacerlona's young team", startDate: 'Mar 2000', endDate: 'Dic 2007'}
   ]
 }
 
