@@ -69,7 +69,7 @@ function CVDisplay({ info }) {
                     return <div key={index}>
                             <div className='titleContainer'>
                                 <span>
-                                    <span className='titleText'>{ed.school}, {ed.degree}, </span>
+                                    <span className='titleText'>{ed.school}, {ed.degree} | </span>
                                     <span className='subTitle'>{ed.location}</span>
                                 </span>
                                 <span className='date'>

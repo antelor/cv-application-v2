@@ -82,11 +82,33 @@
 
         .subTitle{
             font-size: 0.8rem;
-            font-weight: bold;
         }
 
         .description{
             margin-left: 1rem;
+        }
+    }
+}
+
+
+.Form{
+    display: flex;
+    flex-direction: column;
+
+    .generalInfoForm{
+        display: flex;
+        flex-direction: column;
+        
+        input{
+            margin-bottom: 1em;
+        }
+    }
+
+    .generalSkillsForm{
+        margin-top: 1em;
+
+        .skills{
+            display: flex;
         }
     }
 }

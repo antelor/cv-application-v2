@@ -67,7 +67,7 @@ function GeneralInfoForm({info, setInfo}) {
     
 
     return (
-        <div>
+        <div className='generalInfoForm'>
             <input onChange={(e) => {handleNameChange(e)}} placeholder="FirstName LastName" value={info.generalInfo.fullName}></input>
             <input onChange={(e) => {handleWebsiteChange(e)}} placeholder="website.com" value={info.generalInfo.website}></input>
             <input onChange={(e) => {handleLocationChange(e)}} placeholder="Country, State, City" value={info.generalInfo.location}></input>
@@ -109,10 +109,10 @@ function SkillsForm({info, setInfo}) {
     }
 
     return(
-        <>
+        <div className='generalSkillsForm'>
             {info.skills.map( (skill, index) => {
                 return (
-                    <div key={index}>
+                    <div key={index} className='skills'>
                         <span>{skill.title}: </span>
                         <span>{skill.desc}</span>
                         <button onClick={() => deleteSkill(index)}>Delete</button>
@@ -124,7 +124,7 @@ function SkillsForm({info, setInfo}) {
                     <button onClick={addSkill}>Add</button>
                 </div>
             
-        </>
+        </div>
     )
 }
 
