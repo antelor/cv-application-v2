@@ -2,7 +2,6 @@ import { useState } from 'react'
 import '../styles/App.scss'
 import CVForm from './CVForm'
 import CVDisplay from './CVDisplay'
-import Menu from './Menu'
 import { jsPDF } from "jspdf";
 
 const generatePDF = () => {
