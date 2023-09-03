@@ -54,11 +54,9 @@ function App() {
 
   return (
     <div className='App'>
-      <Menu menuIndex={menuIndex} setMenuIndex={setMenuIndex}/>
+      <Menu menuIndex={menuIndex} setMenuIndex={setMenuIndex} generatePDF={generatePDF}/>
       <CVForm info={info} setInfo={setInfo} menuIndex={menuIndex}/>
       <CVDisplay info={info}/>
-
-      <button onClick={generatePDF}>a</button>
     </div>
   )
 }

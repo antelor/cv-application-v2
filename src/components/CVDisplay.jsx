@@ -8,13 +8,19 @@ function CVDisplay({ info }) {
     <div className="Display">
         <div className='introduction container'>
             <div className='personalInfo'>
-                <h1>
-                    {info.generalInfo.fullName}
-                </h1>
-                {info.generalInfo.website}
-                {info.generalInfo.location}
-                {info.generalInfo.email}
-                {info.generalInfo.phone}
+                <div className='personalInfoSection'>
+                    <span className='fullName'>{info.generalInfo.fullName}</span>
+                    <span>{info.generalInfo.location}</span>
+                </div>
+                <div className='personalInfoSection'>
+                    <span className='website'>
+                        {info.generalInfo.website}
+                    </span>
+                    <span>
+                        {info.generalInfo.email} | {info.generalInfo.phone}
+                    </span>
+                </div>
+                
             </div>
             <h2>Summary</h2>
             <hr></hr>
@@ -69,7 +75,8 @@ function CVDisplay({ info }) {
                     return <div key={index}>
                             <div className='titleContainer'>
                                 <span>
-                                    <span className='titleText'>{ed.school}, {ed.degree} | </span>
+                                    <span className='titleText'>{ed.school}, {ed.degree}</span>
+                                    <span> | </span>
                                     <span className='subTitle'>{ed.location}</span>
                                 </span>
                                 <span className='date'>
