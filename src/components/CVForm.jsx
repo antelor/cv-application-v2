@@ -8,7 +8,7 @@ function CVForm({info, setInfo, generatePDF}) {
 
     return(
         <section className='Form'>
-            <button onClick={generatePDF}>Export CV</button>
+            <button className="exportBtn" onClick={generatePDF}>Export CV</button>
             <GeneralInfoForm info={info} setInfo={setInfo}/>
             <SkillsForm info={info} setInfo={setInfo}/>
             <ExperienceForm info={info} setInfo={setInfo}/>
@@ -59,7 +59,7 @@ function GeneralInfoForm({info, setInfo}) {
     
 
     return (
-        <div>
+        <div className='formSection'>
             <div className='formTitle' onClick={() => setIsActive(!isActive)}>
                 <span>
                     General Info 
@@ -113,7 +113,7 @@ function SkillsForm({info, setInfo}) {
     }
 
     return(
-    <div>
+    <div className='formSection'>
         <div className='formTitle' onClick={() => setIsActive(!isActive)}>
             <span>
                 Skills 
@@ -196,7 +196,7 @@ function ExperienceForm({info, setInfo}){
     }
 
     return(
-        <div>
+        <div className='formSection'>
             <div className='formTitle' onClick={() => setIsActive(!isActive)}>
                 <span>Experience</span>
                 <span>{isActive ? '-' : '+'}</span>
@@ -290,7 +290,7 @@ function EducationForm({info, setInfo}){
     }
 
     return(
-        <div>
+        <div className='formSection'>
             <div className='formTitle' onClick={() => setIsActive(!isActive)}>
                 <span>Education</span>
                 <span>{isActive ? '-' : '+'}</span>

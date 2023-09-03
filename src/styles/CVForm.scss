@@ -11,26 +11,44 @@
         padding: 1rem;
         border: 1px solid black;
         margin-top: 1rem;
+        width: 100%;
     }
     .formTitle:hover{
         cursor: pointer;
         background-color: #cecece;
     }
 
-    .generalInfoForm{
+    .exportBtn{
+        align-self: center;
+        width: 6rem;
+    }
+
+    .formSection{
         display: flex;
         flex-direction: column;
-        
-        input{
-            margin-bottom: 1em;
-        }
-    }
+        align-items: center;
 
-    .generalSkillsForm{
-        margin-top: 1em;
-
-        .skills{
+        .generalInfoForm{
             display: flex;
+            flex-direction: column;
+            width: 90%;
+            align-items: center;
+            border: 1px solid black;
+            transition: all 500ms ease-in;
+    
+            input{
+                margin-bottom: 1em;
+            }
+        }
+
+        .generalSkillsForm{
+            margin-top: 1em;
+    
+            .skills{
+                display: flex;
+            }
         }
     }
+
+
 }
