@@ -1,32 +1,24 @@
 /* eslint-disable react/prop-types */
+import '../styles/CVForm.scss'
 
 import {useState} from 'react';
 
-function CVForm({info, setInfo, menuIndex}) {
+function CVForm({info, setInfo, generatePDF}) {
 
 
     return(
         <section className='Form'>
-            {(menuIndex == 0) && 
-            <>
+            <button onClick={generatePDF}>Export CV</button>
             <GeneralInfoForm info={info} setInfo={setInfo}/>
             <SkillsForm info={info} setInfo={setInfo}/>
-            </>}
-            
-            {(menuIndex == 1) &&
-            <>
             <ExperienceForm info={info} setInfo={setInfo}/>
-            </>} 
-
-            {(menuIndex == 2) &&
-            <>
             <EducationForm info={info} setInfo={setInfo}/>
-            </>} 
         </section>)
     
 }
 
 function GeneralInfoForm({info, setInfo}) {
+    const [isActive, setIsActive] = useState(false);
 
     function handleNameChange(e) {
         let newInfo = {...info};
@@ -67,19 +59,31 @@ function GeneralInfoForm({info, setInfo}) {
     
 
     return (
-        <div className='generalInfoForm'>
-            <input onChange={(e) => {handleNameChange(e)}} placeholder="FirstName LastName" value={info.generalInfo.fullName}></input>
-            <input onChange={(e) => {handleWebsiteChange(e)}} placeholder="website.com" value={info.generalInfo.website}></input>
-            <input onChange={(e) => {handleLocationChange(e)}} placeholder="Country, State, City" value={info.generalInfo.location}></input>
-            <input onChange={(e) => {handleEmailChange(e)}} placeholder="example@example.com" value={info.generalInfo.email}></input>
-            <input onChange={(e) => {handlePhoneChange(e)}} placeholder="+11 111 111111" value={info.generalInfo.phone}></input>
-            <textarea onChange={(e) => {handleSummaryChange(e)}} placeholder="Tell something about you" value={info.generalInfo.summary}></textarea>
+        <div>
+            <div className='formTitle' onClick={() => setIsActive(!isActive)}>
+                <span>
+                    General Info 
+                </span>
+                <span>
+                    {isActive ? '-' : '+'}
+                </span>
+            </div>
+            {isActive && 
+                <div className='generalInfoForm'>
+                    <input onChange={(e) => {handleNameChange(e)}} placeholder="FirstName LastName" value={info.generalInfo.fullName}></input>
+                    <input onChange={(e) => {handleWebsiteChange(e)}} placeholder="website.com" value={info.generalInfo.website}></input>
+                    <input onChange={(e) => {handleLocationChange(e)}} placeholder="Country, State, City" value={info.generalInfo.location}></input>
+                    <input onChange={(e) => {handleEmailChange(e)}} placeholder="example@example.com" value={info.generalInfo.email}></input>
+                    <input onChange={(e) => {handlePhoneChange(e)}} placeholder="+11 111 111111" value={info.generalInfo.phone}></input>
+                    <textarea onChange={(e) => {handleSummaryChange(e)}} placeholder="Tell something about you" value={info.generalInfo.summary}></textarea>
+                </div>
+            }
         </div>
     )
 }
 
 function SkillsForm({info, setInfo}) {
-    
+    const [isActive, setIsActive] = useState(false);   
     const[skillTitle, setSkillTitle] = useState('');
     const[skillDesc, setSkillDesc] = useState('');
     
@@ -109,27 +113,37 @@ function SkillsForm({info, setInfo}) {
     }
 
     return(
-        <div className='generalSkillsForm'>
-            {info.skills.map( (skill, index) => {
-                return (
-                    <div key={index} className='skills'>
-                        <span>{skill.title}: </span>
-                        <span>{skill.desc}</span>
-                        <button onClick={() => deleteSkill(index)}>Delete</button>
-                    </div>
-                )})}
-                <div>
-                    <input placeholder="Skill Title" onChange={(e) => updateTitleValue(e)} value={skillTitle}></input>
-                    <textarea placeholder="Description" onChange={(e) => updateDescValue(e)} value={skillDesc}></textarea>
-                    <button onClick={addSkill}>Add</button>
-                </div>
-            
+    <div>
+        <div className='formTitle' onClick={() => setIsActive(!isActive)}>
+            <span>
+                Skills 
+            </span>
+            <span>
+                {isActive ? '-' : '+'}
+            </span>
         </div>
+        {isActive && 
+            <div className='generalSkillsForm'>
+                {info.skills.map( (skill, index) => {
+                    return (
+                        <div key={index} className='skills'>
+                            <span>{skill.title}: </span>
+                            <span>{skill.desc}</span>
+                            <button onClick={() => deleteSkill(index)}>Delete</button>
+                        </div>
+                    )})}
+                    <div>
+                        <input placeholder="Skill Title" onChange={(e) => updateTitleValue(e)} value={skillTitle}></input>
+                        <textarea placeholder="Description" onChange={(e) => updateDescValue(e)} value={skillDesc}></textarea>
+                        <button onClick={addSkill}>Add</button>
+                    </div>
+            </div>}
+    </div>
     )
 }
 
 function ExperienceForm({info, setInfo}){
-
+    const [isActive, setIsActive] = useState(false);
     const [position, setPosition] = useState('');
     const [location, setLocation] = useState('');
     const [desc, setDesc] = useState('');
@@ -182,35 +196,42 @@ function ExperienceForm({info, setInfo}){
     }
 
     return(
-        <>
-        {info.experience.map((job, index) =>{
-            return(
-                <div key={index}>
-                    <p>{job.position}</p>
-                    <p>{job.location}</p>
-                    <p>{job.desc}</p>
-                    <span>{job.startDate}</span>
-                    <span>{job.endDate}</span>
-                    <button onClick={() => deleteJob(index)}>Delete</button>
-                </div>
-            )
-        })}
         <div>
-            <input placeholder='Position' onChange={(e) => changePosition(e)}></input>
-            <input placeholder='Location' onChange={(e) => changeLocation(e)}></input>
-            <input placeholder='Description' onChange={(e) => changeDesc(e)}></input>
-            <input placeholder='Start Date' onChange={(e) => changeStartDate(e)}></input>
-            <input placeholder='End Date' onChange={(e) => changeEndDate(e)}></input>
-            <button onClick={addJob}>Add</button>
-        </div>
+            <div className='formTitle' onClick={() => setIsActive(!isActive)}>
+                <span>Experience</span>
+                <span>{isActive ? '-' : '+'}</span>
+            </div>
+            {isActive && 
+            <div>
+                {info.experience.map((job, index) =>{
+                    return(
+                        <div key={index}>
+                            <p>{job.position}</p>
+                            <p>{job.location}</p>
+                            <p>{job.desc}</p>
+                            <span>{job.startDate}</span>
+                            <span>{job.endDate}</span>
+                            <button onClick={() => deleteJob(index)}>Delete</button>
+                        </div>
+                    )
+                })}
+                <div>
+                    <input placeholder='Position' onChange={(e) => changePosition(e)}></input>
+                    <input placeholder='Location' onChange={(e) => changeLocation(e)}></input>
+                    <input placeholder='Description' onChange={(e) => changeDesc(e)}></input>
+                    <input placeholder='Start Date' onChange={(e) => changeStartDate(e)}></input>
+                    <input placeholder='End Date' onChange={(e) => changeEndDate(e)}></input>
+                    <button onClick={addJob}>Add</button>
+                </div>
+            </div>}
         
-        </>
+        </div>
     )
 
 }
 
 function EducationForm({info, setInfo}){
-
+    const [isActive, setIsActive] = useState(false);
     const [school, setSchool] = useState('');
     const [location, setLocation] = useState('');
     const [degree, setDegree] = useState('');
@@ -269,31 +290,37 @@ function EducationForm({info, setInfo}){
     }
 
     return(
-        <>
-        {info.education.map((ed, index) =>{
-            return(
-                <div key={index}>
-                    <p>{ed.school}</p>
-                    <p>{ed.location}</p>
-                    <p>{ed.degree}</p>
-                    <p>{ed.desc}</p>
-                    <span>{ed.startDate}</span>
-                    <span>{ed.endDate}</span>
-                    <button onClick={() => deleteEd(index)}>Delete</button>
-                </div>
-            )
-        })}
         <div>
-            <input placeholder='School' onChange={(e) => changeSchool(e)}></input>
-            <input placeholder='Location' onChange={(e) => changeLocation(e)}></input>
-            <input placeholder='Degree' onChange={(e) => changeDegree(e)}></input>
-            <input placeholder='Description' onChange={(e) => changeDesc(e)}></input>
-            <input placeholder='Start Date' onChange={(e) => changeStartDate(e)}></input>
-            <input placeholder='End Date' onChange={(e) => changeEndDate(e)}></input>
-            <button onClick={addEd}>Add</button>
+            <div className='formTitle' onClick={() => setIsActive(!isActive)}>
+                <span>Education</span>
+                <span>{isActive ? '-' : '+'}</span>
+            </div>
+            {isActive &&
+            <div>
+                {info.education.map((ed, index) =>{
+                    return(
+                        <div key={index}>
+                            <p>{ed.school}</p>
+                            <p>{ed.location}</p>
+                            <p>{ed.degree}</p>
+                            <p>{ed.desc}</p>
+                            <span>{ed.startDate}</span>
+                            <span>{ed.endDate}</span>
+                            <button onClick={() => deleteEd(index)}>Delete</button>
+                        </div>
+                    )
+                })}
+                <div>
+                    <input placeholder='School' onChange={(e) => changeSchool(e)}></input>
+                    <input placeholder='Location' onChange={(e) => changeLocation(e)}></input>
+                    <input placeholder='Degree' onChange={(e) => changeDegree(e)}></input>
+                    <input placeholder='Description' onChange={(e) => changeDesc(e)}></input>
+                    <input placeholder='Start Date' onChange={(e) => changeStartDate(e)}></input>
+                    <input placeholder='End Date' onChange={(e) => changeEndDate(e)}></input>
+                    <button onClick={addEd}>Add</button>
+                </div>
+            </div>}
         </div>
-        
-        </>
     )
 
 }

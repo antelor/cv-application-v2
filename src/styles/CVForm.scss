@@ -1,0 +1,27 @@
+
+.Form{
+    display: flex;
+    flex-direction: column;
+
+    .formTitle{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .generalInfoForm{
+        display: flex;
+        flex-direction: column;
+        
+        input{
+            margin-bottom: 1em;
+        }
+    }
+
+    .generalSkillsForm{
+        margin-top: 1em;
+
+        .skills{
+            display: flex;
+        }
+    }
+}
