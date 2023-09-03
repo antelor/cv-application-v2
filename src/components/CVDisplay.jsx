@@ -4,7 +4,7 @@ import '../styles/CVDisplay.scss'
 function CVDisplay({ info }) {
 
   return (
-    <>
+    <div className='Display-container'>
     <div className="Display">
         <div className='introduction container'>
             <div className='personalInfo'>
@@ -93,7 +93,7 @@ function CVDisplay({ info }) {
             </div>
         </div>   
     </div>
-    </>
+    </div>
   )
 }
 
