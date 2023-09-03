@@ -2,6 +2,7 @@
 import '../styles/CVForm.scss'
 
 import {useState} from 'react';
+import clsx from "clsx";
 
 function CVForm({info, setInfo, generatePDF}) {
 
@@ -19,6 +20,17 @@ function CVForm({info, setInfo, generatePDF}) {
 
 function GeneralInfoForm({info, setInfo}) {
     const [isActive, setIsActive] = useState(false);
+    const [checked, setChecked] = useState(false);
+    
+    const formDisplay = clsx({
+        "formDisplay": true,
+        hidden: !checked,
+        displayed: checked
+    });
+
+    const handleDisplay = () => {
+        setChecked(!checked);
+    };
 
     function handleNameChange(e) {
         let newInfo = {...info};
@@ -60,7 +72,10 @@ function GeneralInfoForm({info, setInfo}) {
 
     return (
         <div className='formSection'>
-            <div className='formTitle' onClick={() => setIsActive(!isActive)}>
+            <div className='formTitle' onClick={() => {
+                    setIsActive(!isActive);
+                    handleDisplay();
+                }}>
                 <span>
                     General Info 
                 </span>
@@ -68,28 +83,38 @@ function GeneralInfoForm({info, setInfo}) {
                     {isActive ? '-' : '+'}
                 </span>
             </div>
-            {isActive && 
-                <div className='generalInfoForm'>
+                <div className={'formContent ' + formDisplay}>
                     <input onChange={(e) => {handleNameChange(e)}} placeholder="FirstName LastName" value={info.generalInfo.fullName}></input>
                     <input onChange={(e) => {handleWebsiteChange(e)}} placeholder="website.com" value={info.generalInfo.website}></input>
                     <input onChange={(e) => {handleLocationChange(e)}} placeholder="Country, State, City" value={info.generalInfo.location}></input>
                     <input onChange={(e) => {handleEmailChange(e)}} placeholder="example@example.com" value={info.generalInfo.email}></input>
                     <input onChange={(e) => {handlePhoneChange(e)}} placeholder="+11 111 111111" value={info.generalInfo.phone}></input>
-                    <textarea onChange={(e) => {handleSummaryChange(e)}} placeholder="Tell something about you" value={info.generalInfo.summary}></textarea>
+                    <input onChange={(e) => {handleSummaryChange(e)}} placeholder="Tell something about you" value={info.generalInfo.summary}></input>
                 </div>
-            }
         </div>
     )
 }
 
 function SkillsForm({info, setInfo}) {
-    const [isActive, setIsActive] = useState(false);   
+    const [isActive, setIsActive] = useState(false);
     const[skillTitle, setSkillTitle] = useState('');
     const[skillDesc, setSkillDesc] = useState('');
+    const [checked, setChecked] = useState(false);   
     
+    const formDisplay = clsx({
+        "formDisplay": true,
+        hidden: !checked,
+        displayed: checked
+    });
+
+    const handleDisplay = () => {
+        setChecked(!checked);
+    };
+
     function updateTitleValue(e){
         setSkillTitle(e.target.value);       
     }
+    
     function updateDescValue(e){
         setSkillDesc(e.target.value);       
     }
@@ -114,7 +139,10 @@ function SkillsForm({info, setInfo}) {
 
     return(
     <div className='formSection'>
-        <div className='formTitle' onClick={() => setIsActive(!isActive)}>
+        <div className='formTitle' onClick={() => {
+                setIsActive(!isActive);
+                handleDisplay();
+            }}>
             <span>
                 Skills 
             </span>
@@ -122,22 +150,21 @@ function SkillsForm({info, setInfo}) {
                 {isActive ? '-' : '+'}
             </span>
         </div>
-        {isActive && 
-            <div className='generalSkillsForm'>
-                {info.skills.map( (skill, index) => {
-                    return (
-                        <div key={index} className='skills'>
-                            <span>{skill.title}: </span>
-                            <span>{skill.desc}</span>
-                            <button onClick={() => deleteSkill(index)}>Delete</button>
-                        </div>
-                    )})}
-                    <div>
-                        <input placeholder="Skill Title" onChange={(e) => updateTitleValue(e)} value={skillTitle}></input>
-                        <textarea placeholder="Description" onChange={(e) => updateDescValue(e)} value={skillDesc}></textarea>
-                        <button onClick={addSkill}>Add</button>
+        <div className={'formContent ' + formDisplay}>
+            {info.skills.map( (skill, index) => {
+                return (
+                    <div key={index} className='skills'>
+                        <span>{skill.title}: </span>
+                        <span>{skill.desc}</span>
+                        <button onClick={() => deleteSkill(index)}>Delete</button>
                     </div>
-            </div>}
+                )})}
+                <div>
+                    <input placeholder="Skill Title" onChange={(e) => updateTitleValue(e)} value={skillTitle}></input>
+                    <textarea placeholder="Description" onChange={(e) => updateDescValue(e)} value={skillDesc}></textarea>
+                    <button onClick={addSkill}>Add</button>
+                </div>
+        </div>
     </div>
     )
 }
@@ -149,6 +176,17 @@ function ExperienceForm({info, setInfo}){
     const [desc, setDesc] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
+    const [checked, setChecked] = useState(false);
+    
+    const formDisplay = clsx({
+        "formDisplay": true,
+        hidden: !checked,
+        displayed: checked
+    });
+
+    const handleDisplay = () => {
+        setChecked(!checked);
+    };
 
     function changePosition(e){
         setPosition(e.target.value)
@@ -197,12 +235,14 @@ function ExperienceForm({info, setInfo}){
 
     return(
         <div className='formSection'>
-            <div className='formTitle' onClick={() => setIsActive(!isActive)}>
+            <div className='formTitle' onClick={() => {
+                    setIsActive(!isActive);
+                    handleDisplay();
+                }}>
                 <span>Experience</span>
                 <span>{isActive ? '-' : '+'}</span>
             </div>
-            {isActive && 
-            <div>
+            <div className={'formContent ' + formDisplay}>
                 {info.experience.map((job, index) =>{
                     return(
                         <div key={index}>
@@ -223,8 +263,7 @@ function ExperienceForm({info, setInfo}){
                     <input placeholder='End Date' onChange={(e) => changeEndDate(e)}></input>
                     <button onClick={addJob}>Add</button>
                 </div>
-            </div>}
-        
+            </div>
         </div>
     )
 
@@ -238,6 +277,17 @@ function EducationForm({info, setInfo}){
     const [desc, setDesc] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
+    const [checked, setChecked] = useState(false);
+
+    const formDisplay = clsx({
+        "formDisplay": true,
+        hidden: !checked,
+        displayed: checked
+    });
+
+    const handleDisplay = () => {
+        setChecked(!checked);
+    };
 
     function changeSchool(e){
         setSchool(e.target.value)
@@ -291,12 +341,14 @@ function EducationForm({info, setInfo}){
 
     return(
         <div className='formSection'>
-            <div className='formTitle' onClick={() => setIsActive(!isActive)}>
+            <div className='formTitle'onClick={() => {
+                    setIsActive(!isActive);
+                    handleDisplay();
+                }}>
                 <span>Education</span>
                 <span>{isActive ? '-' : '+'}</span>
             </div>
-            {isActive &&
-            <div>
+            <div className={'formContent ' + formDisplay}>
                 {info.education.map((ed, index) =>{
                     return(
                         <div key={index}>
@@ -319,7 +371,7 @@ function EducationForm({info, setInfo}){
                     <input placeholder='End Date' onChange={(e) => changeEndDate(e)}></input>
                     <button onClick={addEd}>Add</button>
                 </div>
-            </div>}
+            </div>
         </div>
     )
 
