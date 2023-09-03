@@ -9,11 +9,11 @@ function CVForm({info, setInfo, generatePDF}) {
 
     return(
         <section className='Form'>
-            <button className="exportBtn" onClick={generatePDF}>Export CV</button>
             <GeneralInfoForm info={info} setInfo={setInfo}/>
             <SkillsForm info={info} setInfo={setInfo}/>
             <ExperienceForm info={info} setInfo={setInfo}/>
             <EducationForm info={info} setInfo={setInfo}/>
+            <button className="exportBtn" onClick={generatePDF}>Export CV</button>
         </section>)
     
 }
