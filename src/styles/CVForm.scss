@@ -52,17 +52,45 @@
             transition: all 500ms ease-in;
             background-color: #e4e4e4;
     
-            input{
+            .inputDiv{
+                display: flex;
+                flex-direction: column;
                 width: 80%;
-                margin: 0.7rem;
-            }
-        }
+                margin: 0.8rem;
 
-        .generalSkillsForm{
-            margin-top: 1em;
-    
+                label{
+                    margin-bottom: 0.2rem;
+                }
+            }
+
             .skills{
                 display: flex;
+                margin: 1rem;
+                align-items: center;
+
+                .skillTitle{
+                    font-weight: bold;
+                }
+
+                .skillBtn{
+                    height: fit-content;
+                }
+            }
+
+            .skillAddSection{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 1rem;
+                width: 100%;
+
+                button{
+                    width: fit-content;
+                }
+
+                .inputDiv{
+                }
             }
         }
     }
