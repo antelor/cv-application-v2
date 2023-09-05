@@ -86,7 +86,7 @@ function ExperienceForm({info, setInfo}){
                                 <span className='expPosition'>{exp.position}</span>
                                 <span>{exp.location}</span>
                             </div>
-                            <div className='expateSection'>
+                            <div className='expDateSection'>
                                 <span>{exp.startDate}</span>
                                 <span>{exp.endDate}</span>
                             </div>

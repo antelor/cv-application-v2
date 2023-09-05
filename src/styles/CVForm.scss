@@ -16,8 +16,10 @@
 
     .displayed {
         height: 100%;
-        border: 1px solid black;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
         border-top: none;
+        box-shadow: 1px 1px 2px rgb(87, 87, 87);
     }
 
     .exportBtn{
@@ -30,18 +32,23 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 1rem;
 
         .formTitle{
             display: flex;
             justify-content: space-between;
             padding: 1rem;
-            border: 1px solid black;
-            margin-top: 1rem;
             width: 100%;
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 1px 1px 2px rgb(87, 87, 87);
+            z-index: 1;
+
+            font-size: 1.5rem;
         }
         .formTitle:hover{
             cursor: pointer;
-            background-color: #cecece;
+            background-color: #f0f0f0;
         }
 
         .formContent{
@@ -50,7 +57,7 @@
             width: 90%;
             align-items: center;
             transition: all 500ms ease-in;
-            background-color: #e4e4e4;
+            background-color: rgb(255, 255, 255) ;
     
             .inputDiv{
                 display: flex;
@@ -65,15 +72,19 @@
 
             .skillItem{
                 display: flex;
+                flex-direction: row;
+                justify-content: space-between;
                 margin: 1rem;
-                align-items: center;
-
                 .skillTitle{
                     font-weight: bold;
                 }
 
                 .skillBtn{
                     height: fit-content;
+                }
+
+                .skillDesc{
+                    width: 80%;
                 }
             }
 
@@ -200,5 +211,27 @@
         }
     }
 
+    .exportBtn{
+        background-color: rgb(255, 255, 255);
+        font-size: 1.3rem;
+        border-radius: 1rem;
+        border-style: none;
 
+        border: 1px solid #000000;
+        width: fit-content;
+        padding: 1rem;
+        transition: all 0.1s ease-in;
+
+        &:hover{
+            cursor: pointer;
+            background-color: #f0f0f0;
+            transform: scale(0.98);
+        }
+
+        &:active{
+            transform: scale(0.95);
+            background-color: #d8d8d8;
+        }
+
+    }
 }
