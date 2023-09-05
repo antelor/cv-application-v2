@@ -22,12 +22,6 @@
         box-shadow: 1px 1px 2px rgb(87, 87, 87);
     }
 
-    .exportBtn{
-        align-self: center;
-        width: 6rem;
-        margin-top: 1.5rem;
-    }
-
     .formSection{
         display: flex;
         flex-direction: column;
@@ -213,27 +207,36 @@
         }
     }
 
-    .exportBtn{
-        background-color: rgb(255, 255, 255);
-        font-size: 1.3rem;
-        border-radius: 1rem;
-        border-style: none;
-
-        border: 1px solid #000000;
-        width: fit-content;
-        padding: 1rem;
-        transition: all 0.1s ease-in;
-
-        &:hover{
-            cursor: pointer;
-            background-color: #f0f0f0;
-            transform: scale(0.98);
-        }
-
-        &:active{
-            transform: scale(0.95);
-            background-color: #d8d8d8;
-        }
-
+    .buttonMenu{
+        align-self: center;
+        display: flex;
+        width: 70%;
+        justify-content: space-around;
+        margin-bottom: 1rem;
+        
+        button{
+            background-color: rgb(255, 255, 255);
+            font-size: 1.3rem;
+            border-radius: 1rem;
+            border-style: none;
+            height: fit-content;
+    
+            border: 1px solid #000000;
+            width: fit-content;
+            padding: 1rem;
+            transition: all 0.1s ease-in;
+    
+            &:hover{
+                cursor: pointer;
+                background-color: #f0f0f0;
+                transform: scale(0.98);
+            }
+    
+            &:active{
+                transform: scale(0.95);
+                background-color: #d8d8d8;
+            }
+    
+        }  
     }
 }
