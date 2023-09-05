@@ -62,7 +62,7 @@ function SkillsForm({info, setInfo}) {
         <div className={'formContent ' + formDisplay}>
             {info.skills.map( (skill, index) => {
                 return (
-                    <div key={index} className='skills'>
+                    <div key={index} className='skillItem'>
                         <div>
                             <span className='skillTitle'>{skill.title}: </span>
                             <span className='skillDesc'>{skill.desc}</span>
@@ -70,7 +70,7 @@ function SkillsForm({info, setInfo}) {
                         <button className='skillBtn' onClick={() => deleteSkill(index)}>❌</button>
                     </div>
                 )})}
-                <div className='skillAddSection'>
+                <div className='skillSectionAdd'>
                     <div className="inputDiv">
                         <label htmlFor="skill">Skill Title</label>
                         <input id="skill" name="skill" placeholder="Skill Title" onChange={(e) => updateTitleValue(e)} value={skillTitle}></input>

@@ -87,24 +87,30 @@ function EducationForm({info, setInfo}){
             <div className={'formContent ' + formDisplay}>
                 {info.education.map((ed, index) =>{
                     return(
-                        <div key={index}>
-                            <p>{ed.school}</p>
-                            <p>{ed.location}</p>
+                        <div className="edItem" key={index}>
+                            <p className='edSchool'>{ed.school}</p>
                             <p>{ed.degree}</p>
+                            <p>{ed.location}</p>
                             <p>{ed.desc}</p>
-                            <span>{ed.startDate}</span>
-                            <span>{ed.endDate}</span>
+                            <div className='edDate'>
+                                <span>{ed.startDate}</span>
+                                <span>{ed.endDate}</span>
+                            </div>
                             <button onClick={() => deleteEd(index)}>Delete</button>
                         </div>
                     )
                 })}
-                <div>
-                    <input placeholder='School' onChange={(e) => changeSchool(e)}></input>
-                    <input placeholder='Location' onChange={(e) => changeLocation(e)}></input>
+                <div className='edSectionAdd'>
+                    <div className="edFirstSectionAdd">
+                        <input placeholder='School' onChange={(e) => changeSchool(e)}></input>
+                        <input placeholder='Location' onChange={(e) => changeLocation(e)}></input>
+                    </div>
+                    <div className="edDateSectionAdd">
+                        <input placeholder='Start Date' onChange={(e) => changeStartDate(e)}></input>
+                        <input placeholder='End Date' onChange={(e) => changeEndDate(e)}></input>
+                    </div>
                     <input placeholder='Degree' onChange={(e) => changeDegree(e)}></input>
                     <input placeholder='Description' onChange={(e) => changeDesc(e)}></input>
-                    <input placeholder='Start Date' onChange={(e) => changeStartDate(e)}></input>
-                    <input placeholder='End Date' onChange={(e) => changeEndDate(e)}></input>
                     <button onClick={addEd}>Add</button>
                 </div>
             </div>
