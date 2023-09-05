@@ -9,7 +9,7 @@ const generatePDF = () => {
     report.setFont('Helvetica', 'normal');
     report.html(document.querySelector('.Display'), {
       html2canvas: {
-          scale: 0.7496,
+          scale: 0.7196,
       },
       callback: function (doc) {
           window.open(doc.output('bloburl'));
